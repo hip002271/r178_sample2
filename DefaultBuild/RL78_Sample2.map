@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (W3.06.00 )             31-May-2024 11:38:16
+Renesas Optimizing Linker (W3.06.00 )             31-May-2024 13:20:05
 
 *** Options ***
 
@@ -48,7 +48,7 @@ SECTION                            START      END         SIZE   ALIGN
 .sdata
                                   00000080  00000080         0   2
 .data
-                                  00000082  00000092        11   2
+                                  00000082  00000093        12   2
 .option_byte
                                   000000c0  000000c3         4   1
 .security_id
@@ -72,7 +72,7 @@ SECTION                            START      END         SIZE   ALIGN
 .bss
                                   000ff900  000ff90c         d   2
 .dataR
-                                  000ff90e  000ff91e        11   2
+                                  000ff90e  000ff91f        12   2
 .sbss
                                   000ffe20  000ffe28         9   2
 .sdataR

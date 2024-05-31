@@ -69,6 +69,7 @@ UCHAR	g74HC77_Count = 0;
 #if defined IC74HC4511_USED
 UCHAR	g74HC4511_LastNum[IC74HC4511_USED];
 UCHAR	g74HC4511_Count = 0;
+UCHAR	g74HC4511_Loop_Count = 0;
 #endif /* end of defined IC74HC4511_USED */
 
 #if defined IC74HC166_USED
@@ -803,10 +804,10 @@ UCHAR  IC_74HC4511_Evaluate( UCHAR State, UCHAR A_in, UCHAR B_in, UCHAR C_in, UC
 	if (ucValue > 10) ucValue = 10;
 	
 	if ( uclValue == 9 && ucValue == 0){
-		return ucRet[ucValue] + 1;
+		IC74HC4511_Loop_Counter();
 	}
 	
-	return ucRet[ucValue];
+	return ucRet[ucValue] +( g74HC4511_Loop_Count % 2 );
 }
 
 /*******************************************************************************
@@ -840,6 +841,16 @@ void IC74HC4511_Counter_Clear( void )
 void IC74HC4511_Counter( void )
 {
 	g74HC4511_Count ++;
+}
+/*******************************************************************************
+* Function Name: IC74HC4511_Loop_Counter
+* Description  : IC74HC4511 Panel Counter Clear.
+* Arguments    : none
+* Return Value : none
+********************************************************************************/
+void 	IC74HC4511_Loop_Counter( void )
+{
+	g74HC4511_Loop_Count ++;
 }
 #endif /* end of defined IC74HC4511_USED */
 
