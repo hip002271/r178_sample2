@@ -803,11 +803,7 @@ UCHAR  IC_74HC4511_Evaluate( UCHAR State, UCHAR A_in, UCHAR B_in, UCHAR C_in, UC
 	
 	if (ucValue > 10) ucValue = 10;
 	
-	if ( uclValue == 9 && ucValue == 0){
-		IC74HC4511_Loop_Counter();
-	}
-	
-	return ucRet[ucValue] +( g74HC4511_Loop_Count % 2 );
+	return ucRet[ucValue];
 }
 
 /*******************************************************************************
@@ -840,7 +836,7 @@ void IC74HC4511_Counter_Clear( void )
 ********************************************************************************/
 void IC74HC4511_Counter( void )
 {
-	g74HC4511_Count ++;
+	g74HC4511_Count --;
 }
 /*******************************************************************************
 * Function Name: IC74HC4511_Loop_Counter

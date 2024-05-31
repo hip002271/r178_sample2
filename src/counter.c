@@ -218,7 +218,7 @@ UCHAR BCNT_Evaluate( UCHAR mr, UCHAR cp0, UCHAR cp1, UCHAR max )
 			if (cp1 == LOW) {
 				if (lastcp1 == HIGH) {
 					/* (Count value of binary counter)++ */
-					count++;
+					count--;
 				}
 			}
 		}
@@ -226,7 +226,7 @@ UCHAR BCNT_Evaluate( UCHAR mr, UCHAR cp0, UCHAR cp1, UCHAR max )
 			if (lastcp0 == LOW) {
 				if (cp1 == HIGH) {
 					/* (Count value of binary counter)++ */
-					count++;
+					count--;
 				}
 			}
 		}
@@ -238,9 +238,9 @@ UCHAR BCNT_Evaluate( UCHAR mr, UCHAR cp0, UCHAR cp1, UCHAR max )
 	}
 	
 	/* If the count value is larger than the count maximum value, it returns it to 0. */
-	if (count > max) {
+	if (count > 9) {
 		/* (Count value of binary counter)<-0 */
-		count = 0;
+		count = 9;
 	}
 	
 	/* This value of cp0 of binary counter is preserved. */
@@ -265,7 +265,7 @@ UCHAR BCNT_Evaluate( UCHAR mr, UCHAR cp0, UCHAR cp1, UCHAR max )
 void BCNT_Counter( void )
 {
 	/* "Count of PROC of binary counter"++ */
-	g_ucBCNT_Count++;
+	g_ucBCNT_Count--;
 }
 
 #endif /* end of defined BCNT_USED */
